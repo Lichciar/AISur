@@ -18,33 +18,36 @@ using std::endl;
 // Начало функции main.
 int main()
 {
-    // Версия программы.
-    int mainVersion = 0;
-    int subVersion = 1;
+	// Версия программы.
+	int mainVersion = 0;
+	int subVersion = 2;
 
-    // Условия остановки программы.
-    short int stopCondition = 1;
+	// Условия остановки программы.
+	short int stopCondition = 0;
 
-    // Задаём отсчёт времени - рободни.
-    Roboday lineage(2);
+	// Задаём отсчёт времени - рободни.
+	Roboday lineage(2);
 
-    // Выводим приветствие.
-    cout << "Программа AIPond v. ";
-    cout << mainVersion << "." << subVersion;
-    cout << endl;
-    cout << "    -Класс Roboday v. ";
-    cout << lineage.getMainVersion() << "." << lineage.getSubVersion();
-    cout << endl;
+	// Выводим приветствие.
+	cout << "Программа AISur v. ";
+	cout << mainVersion << "." << subVersion;
+	cout << endl;
+	cout << "    -Класс Roboday v. ";
+	cout << lineage.getMainVersion() << "." << lineage.getSubVersion();
+	cout << endl;
 
-    // Создаём петлю.
-    while (stopCondition > 0)
-    {
-        // Выводим в консоль значение рободня.
-        lineage.inConsoleRoboday();
-        // Увеличиваем робрдень на 1.
-        lineage.insRoboday();
-    };
+	// Создаём петлю.
+	while (stopCondition == 0)
+	{
+		// Выводим в консоль значение рободня.
+		lineage.inConsoleRoboday();
+		// Увеличиваем робрдень на 1.
+		lineage.insRoboday();
 
-    // Сообщае об успешном завершении программы.
-    return 0;
+		// Проверяем на наличие ошибок.
+		stopCondition += lineage.error();
+	};
+
+	// Сообщае об успешном завершении программы.
+	return 0;
 };

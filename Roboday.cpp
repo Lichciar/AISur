@@ -1,10 +1,7 @@
 // Описание класса Roboday:
  
-// План на v. 0.1:
-//  1)По запросу извне выдавать свою версию;
-//  2)Отсчёт начинать с первого дня;
-//  3)Прибавлять день;
-//  4)Выводить на консоль.
+// План на v. 0.2:
+//  1)Добавил проверку на ошибки.
 
 // Директори препроцессора на ввод и вывод.
 #include <iostream>
@@ -19,41 +16,55 @@ using std::endl;
 // Конструктор, инициализация класса.
 Roboday::Roboday(short int day)
 {
-    // Отрицательного значения быть не должно.
-    if (day >= 0)
-    {
-        roboday = day;
-    }
-    else
-    {
-        roboday = 1;
-    }
+	// Отрицательного значения быть не должно.
+	if (day >= 0)
+	{
+		roboday = day;
+	}
+	else
+	{
+		roboday = 1;
+	}
 
-    // Задаём версию класса.
-    mainVersion = 0;
-    subVersion = 1;
+	// Задаём версию класса.
+	mainVersion = 0;
+	subVersion = 2;
 };
 
 // Функция добавления рободня.
 void Roboday::insRoboday()
 {
-    roboday = roboday + 1;
+	roboday += 1;
 }
 
 // Функция выводя рободня на консоль.
 void Roboday:: inConsoleRoboday()
 {
-    cout << "Наступил " << roboday << " рободень." << endl;
+	cout << "Наступил " << roboday << " рободень." << endl;
 }
 
 // Функция выдачи версии класса.
 short int Roboday::getMainVersion()
 {
-    return mainVersion;
+	return mainVersion;
 }
 
 // Функция выдачи версии класса.
 short int Roboday::getSubVersion()
 {
-    return subVersion;
+	return subVersion;
+}
+
+// Функция проверки на ошибку.
+short int Roboday::error()
+{
+	// Проверяем на отрицательное значение.
+	if (roboday < 32767)
+	{
+		return 0;
+	}
+	else
+	{
+		return 1;
+	};
 }
