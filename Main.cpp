@@ -9,7 +9,7 @@
 #include <iostream>
 
 // Директория препроцессора для подключения интерфейса класса.
-#include "Roboday.h"
+#include "Robotime.h"
 
 // Избавляемся от пространства имён "std".
 using std::cout;
@@ -20,29 +20,29 @@ int main()
 {
 	// Версия программы.
 	int mainVersion = 0;
-	int subVersion = 2;
+	int subVersion = 3;
 
 	// Условия остановки программы.
 	short int stopCondition = 0;
 
-	// Задаём отсчёт времени - рободни.
-	Roboday lineage(2);
+	// Задаём отсчёт времени - робовремя.
+	Robotime lineage;
 
 	// Выводим приветствие.
 	cout << "Программа AISur v. ";
 	cout << mainVersion << "." << subVersion;
 	cout << endl;
-	cout << "    -Класс Roboday v. ";
+	cout << "    -Класс Robotime v. ";
 	cout << lineage.getMainVersion() << "." << lineage.getSubVersion();
 	cout << endl;
 
 	// Создаём петлю.
 	while (stopCondition == 0)
 	{
-		// Выводим в консоль значение рободня.
-		lineage.inConsoleRoboday();
-		// Увеличиваем робрдень на 1.
-		lineage.insRoboday();
+		// Выводим в консоль дату.
+		lineage.inConsoleRobotime();
+		// Увеличиваем робовремя на 1.
+		lineage.insRobotime();
 
 		// Проверяем на наличие ошибок.
 		stopCondition += lineage.error();
